@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document1</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+	<header class="header">
+		<a href="#" class="header__logo">
+			<p>Novus<br><span>Admin Panel Template</span></p>
+		</a>
+		<div class="header__menu">
+			<input type="search" placeholder="Search..." id="jsSearch">
+			<ul class="header__menu-items">
+				<li class="header__menu-item">
+				</li>
+				<li class="header__menu-item">
+				</li>
+				<li class="header__menu-item">
+					<span class="header__menu-notification">4</span>
+				</li>
+				<li class="header__menu-item">
+				</li>
+			</ul>
+		</div>
+	</header>
+	<section class="user">
+		<div class="user__block">
+			<div class="user__block-avatar">
+				<img src="images/main-user.jpg" alt="Avatar">
+			</div>
+			<div class="user__block-name">
+				<p>Dmitrij Perejro</p>
+				<a href="#">@DmitrijPerejro</a>
+			</div>
+			<button class="user__block-button">></button>
+		</div>
+		<ul class="user__block-stats">
+			<li class="user__block-item">
+				<a href="#">
+					<p class="user__block-item-title">Users</p>
+					<p class="user__block-item-count">218K</p>
+					<span class="user__block-item-notification">+14</span>
+				</a>
+			</li>
+			<li class="user__block-item">
+				<a href="#">
+					<p class="user__block-item-title">Orders</p>
+					<p class="user__block-item-count">1414</p>
+					<span class="user__block-item-notification">+1</span>
+				</a>
+			</li>
+			<li class="user__block-item">
+				<a href="#">
+					<p class="user__block-item-title">Visits</p>
+					<p class="user__block-item-count">102</p>
+					<span class="user__block-item-notification">+102</span>
+				</a>
+			</li>
+			<li class="user__block-item">
+				<a href="#">
+					<p class="user__block-item-title">Balance</p>
+					<p class="user__block-item-count">$55.222</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<div class="content">
+		<div class="left-column">
+			<ul class="left-menu">
+				<li>
+					<a href="" class="left-menu__item">Dashboard</a>
+				</li>
+				<li>
+					<a href="" class="left-menu__item left-menu__item--active">UI Elements</a>
+				</li>
+				<li>
+					<a href="" class="left-menu__item">Form Stuff</a>
+				</li>
+				<li>
+					<a href="" class="left-menu__item">Mesages</a>
+					<span class="left-menu__item-notification">5</span>
+				</li>
+				<li>
+					<a href="" class="left-menu__item left-menu__item--fixed">Statistic</a>
+				</li>
+				<li>
+					<a href="" class="left-menu__item">Tables</a>
+				</li>
+				<li>
+					<a href="" class="left-menu__item">Other Pages</a>
+				</li>
+			</ul>
+		</div>
+		<div class="right-column">
+			<section class="menu-top">
+				<div class="menu-top__welcome">
+					<p>Dashboard</p>
+					<span>Welcome</span>
+				</div>
+				<ul class="menu-top__config">
+					<li class="active">
+						<a href="#" class="menu-top__config-item">Quick Menu Actions</a>
+					</li>
+					<li>
+						<a href="#" class="menu-top__config-item">Web Site Statistic</a>
+					</li>
+					<li>
+						<a href="#" class="menu-top__config-item">Calendar</a>
+					</li>	
+				</ul>
+			</section>
+			<section class="settings">
+				<div class="hex">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+				<div class="hex">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+				<div class="hex">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+				<div class="hex">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+				<div class="hex">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+				<div class="hex active">
+					<div class="corner1"></div>
+					<div class="corner2"></div>
+					<p class="hex__tooltip">Layout setting</p>
+				</div>
+			</section>
+			<section class="info">
+				<div class="tabs-menu">
+					<a href="#VisitorsStatistic" class="tabs-menu__title active">Visitors Statistic</a>
+					<a href="#OrdersStatistic" class="tabs-menu__title">Orders Statistic</a>
+					<a href="#UsersStatistic" class="tabs-menu__title">Users Statistic</a>
+				</div>
+				<div class="tabs-contents">
+					<div class="tabcontent" id="VisitorsStatistic">
+						<div class="about">
+							<p class="about__descrp">Today's visitors</p>
+							<time>5:23 am</time>
+							<div class="options">
+								<button>+</button>
+								<span>14,880</span>
+							</div>
+						</div>
+						<div class="graph">
+						</div>
+					</div>
+					<!-- <div class="tabcontent" id="OrdersStatistic">
+						<div class="about">
+							<p class="about__descrp">Today's orders</p>
+							<time>5:23 am</time>
+							<div class="options">
+								<button>+</button>
+								<span>14,880</span>
+							</div>
+						</div>
+						<div class="graph">
+						</div>
+					</div>
+					<div class="tabcontent" id="UsersStatistic">
+						<div class="about">
+							<p class="about__descrp">Today's users</p>
+							<time>5:23 am</time>
+							<div class="options">
+								<button>+</button>
+								<span>14,880</span>
+							</div>
+						</div>
+						<div class="graph">
+						</div>
+					</div> -->
+				</div>
+			</section>
+			<section class="info2">
+				<div class="info2__left-column">
+					<div class="info2__comment">
+						<div class="info2__comment-header">
+							<h2 class="info2__comment-title">
+								Recent Comments
+							</h2>
+							<div class="info2__comment-header-options">
+									<input type="checkbox" id="check">
+									<label for="check"></label>
+								<button>+</button>
+							</div>
+						</div>
+						<div class="info2__comment-body">
+							<div class="info2__comment-user">
+								<div class="info2__comment-user-header">
+									<div class="info2__comment-user-header-info">
+										<div class="info2__comment-user-avatar">
+											<img src="images/main-user.jpg" alt="Avatar">
+										</div>
+										<div class="info2__comment-user-name">
+											<p>Perejrich</p>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<p class="info2__comment-user-ip"><span>IP:</span> 192.168.2.120</p>
+									<button class="info2__comment-user-repost"></button>
+								</div>
+								<div class="info2__comment-user-body">
+									<div class="info2__comment-user-status info2__comment-user-status--online"></div>
+									<p class="info2__comment-user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed animi nullaveeveveveve, accusamus neque? Dicta explicabo obcaecati inventore. Tenetur illo id cum eius autem! Asperiores ratione consequuntur quasi explicabo, libero!</p>
+								</div>
+							</div>
+							<div class="info2__comment-user">
+								<div class="info2__comment-user-header">
+									<div class="info2__comment-user-header-info">
+										<div class="info2__comment-user-avatar">
+											<img src="images/main-user.jpg" alt="Avatar">
+										</div>
+										<div class="info2__comment-user-name">
+											<p>Perejrich</p>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<p class="info2__comment-user-ip"><span>IP:</span> 192.168.2.120</p>
+									<button class="info2__comment-user-repost"></button>
+								</div>
+								<div class="info2__comment-user-body">
+									<div class="info2__comment-user-status info2__comment-user-status--online"></div>
+									<p class="info2__comment-user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed animi nullaveeveveveve, accusamus neque? Dicta explicabo obcaecati inventore. Tenetur illo id cum eius autem! Asperiores ratione consequuntur quasi explicabo, libero!</p>
+								</div>
+							</div>
+							<div class="info2__comment-user">
+								<div class="info2__comment-user-header">
+									<div class="info2__comment-user-header-info">
+										<div class="info2__comment-user-avatar">
+											<img src="images/main-user.jpg" alt="Avatar">
+										</div>
+										<div class="info2__comment-user-name">
+											<p>Perejrich</p>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<p class="info2__comment-user-ip"><span>IP:</span> 192.168.2.120</p>
+									<button class="info2__comment-user-repost"></button>
+								</div>
+								<div class="info2__comment-user-body">
+									<div class="info2__comment-user-status info2__comment-user-status--online"></div>
+									<p class="info2__comment-user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed animi nullaveeveveveve, accusamus neque? Dicta explicabo obcaecati inventore. Tenetur illo id cum eius autem! Asperiores ratione consequuntur quasi explicabo, libero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vitae, obcaecati accusantium molestiae magnam, aliquid officiis quae facilis ipsam soluta dolor provident architecto quas, quos sit placeat. Accusantium repellat, enim.</p>
+								</div>
+							</div>
+							<div class="info2__comment-user--repost">
+								<div class="info2__comment-user-header">
+									<div class="info2__comment-user-header-info">
+										<div class="info2__comment-user-avatar">
+											<img src="images/main-user.jpg" alt="Avatar">
+										</div>
+										<div class="info2__comment-user-name">
+											<p>Perejrich</p>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<p class="info2__comment-user-ip"><span>IP:</span> 192.168.2.120</p>
+								</div>
+								<div class="info2__comment-user-body">
+									<div class="info2__comment-user-status info2__comment-user-status--online"></div>
+									<p class="info2__comment-user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi</p>
+								</div>
+							</div>
+							<div class="info2__comment-user--repost">
+								<div class="info2__comment-user-header">
+									<div class="info2__comment-user-header-info">
+										<div class="info2__comment-user-avatar">
+											<img src="images/main-user.jpg" alt="Avatar">
+										</div>
+										<div class="info2__comment-user-name">
+											<p>Perejrich</p>
+											<time>3 minutes ago</time>
+										</div>
+									</div>
+									<p class="info2__comment-user-ip"><span>IP:</span> 192.168.2.120</p>
+								</div>
+								<div class="info2__comment-user-body">
+									<div class="info2__comment-user-status"></div>
+									<p class="info2__comment-user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<section class="pagination">
+						<a href="">1</a>
+						<a href="" class="active">2</a>
+						<a href="">3</a>
+						<a href="">4</a>
+						<a href="">5</a>
+						<a href="">6</a>
+						<a href="">...</a>
+						<a href="">15</a>
+						<button>></button>
+					</section>
+				</div>
+				<div class="info2__right-column">
+					<div class="info2__datepicker-header">
+						<h2 class="info2__datepicker-title">
+							Calendar
+						</h2>
+						<button class="info2__datepicker-options">3/10/2013
+						</button>
+					</div>
+					<div class="info2__datepicker-body">
+						datepicker.js
+					</div>
+					<div class="info2__form">
+						<form name="Comment">
+							<input type="text" id="formName" placeholder="Your name">
+							<textarea placeholder="Your message" id="formText"></textarea>
+							<input type="submit" value="Send">
+						</form>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+
+
+
+	
+<script src='js/lib.js'></script>
+<script src='js/functions.js'></script>
+</body>
+</html>
