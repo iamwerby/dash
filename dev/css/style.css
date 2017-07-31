@@ -432,10 +432,11 @@ body {
         background-color: #fd8a78;
         position: relative;
         border-radius: 10px;
-        -webkit-transition: all 10s;
-        -o-transition: all 10s;
-        transition: all 10s;
-        opacity: .5; }
+        -webkit-transition: all 2s;
+        -o-transition: all 2s;
+        transition: all 2s;
+        opacity: .4;
+        cursor: pointer; }
         .content .right-column .settings .hex.active {
           opacity: 1; }
           .content .right-column .settings .hex.active .hex__tooltip {
