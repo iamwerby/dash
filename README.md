@@ -1,5 +1,5 @@
 # dash
-1. npm install
+<p>1. npm install</p>
 2. gulp dev
 2.1 gulp dev - работаем с вотчерои
 2.2. gulp prod - собираем
