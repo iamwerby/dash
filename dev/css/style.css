@@ -432,9 +432,9 @@ body {
         background-color: #fd8a78;
         position: relative;
         border-radius: 10px;
-        -webkit-transition: all 2s;
-        -o-transition: all 2s;
-        transition: all 2s;
+        -webkit-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
         opacity: .4;
         cursor: pointer; }
         .content .right-column .settings .hex.active {
@@ -537,14 +537,16 @@ body {
         .content .right-column .info .tabs-menu__title.active {
           background-color: #fff; }
       .content .right-column .info .tabs-contents .tabcontent {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+        display: none;
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
             -ms-flex-pack: justify;
                 justify-content: space-between; }
+        .content .right-column .info .tabs-contents .tabcontent.active {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex; }
         .content .right-column .info .tabs-contents .tabcontent .about {
           width: 170px;
           padding: 30px 0px 30px 30px;

@@ -466,7 +466,7 @@ body {
 				background-color: #fd8a78;
 				position: relative;
 				border-radius: 10px;
-				transition:all 2s;
+				transition:all 1s;
 				opacity: .4;
 				cursor: pointer;
 
@@ -597,8 +597,12 @@ body {
 
 				& .tabcontent {
 
-					display: flex;
+					display: none;
 					justify-content: space-between;
+
+					&.active {
+						display: flex;
+					}
 
 					& .about {
 						width: 170px;
