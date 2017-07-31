@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+let gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	browserSync = require('browser-sync'),
 	htmlmin = require('gulp-htmlmin'),
@@ -7,13 +7,13 @@ var gulp = require('gulp'),
 	cssnano = require('gulp-cssnano'),
 	rename = require('gulp-rename'),
 	del = require('del'),
-	prefix = require('gulp-autoprefixer');
+	prefix = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin');
 
 //complete 
 gulp.task('complete', function(){
 	console.log("Готово, ошибок нет.")
-})
+});
 
 //templates
 gulp.task('templ', function() {
@@ -49,7 +49,7 @@ gulp.task('browser-sync', function () {
 		},
 		notify: false
 	})
-})
+});
 
 //images
 gulp.task('images', function () {
@@ -67,7 +67,7 @@ gulp.task('libs', function () {
 	    .pipe(uglify())
 	    .pipe(gulp.dest('prod/js'))
 	    .pipe(gulp.dest('dev/js/lib'))
-    })
+    });
 
 gulp.task('scripts', function () {
      gulp.src('dev/js/*.js')
@@ -75,13 +75,13 @@ gulp.task('scripts', function () {
     .pipe(uglify())
     .pipe(gulp.dest('prod/js'))
     .pipe(browserSync.reload({stream: true}))
-})
+});
 
 
 //clean
 gulp.task('clean', function () {
 	return del.sync('prod');
-})
+});
 
 
 gulp.task('watch', ['browser-sync', 'libs', 'css-minify', 'templ', 'scripts'], function () {
