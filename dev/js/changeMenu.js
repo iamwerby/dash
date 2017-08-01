@@ -1,15 +1,11 @@
-$(document).ready(function(){
+/**
+ * Created by Alex on 31.07.2017.
+ */
+/*"use strict";
+jQuery.noConflict();
 
-	$('.hex').mouseover(function(){
-		$(".hex").removeClass('active');
-  		$(this).addClass('active');
-	});
-
-	$('.hex').mouseout(function(event){
-		$(".hex").removeClass('active');
-	});
-
-	var counter = 0;
+$(document).ready(function($) {
+    var counter = 0;
 
   $( '.menu-top__config li' ).on( 'click', function (event) {
       counter++;
@@ -30,4 +26,6 @@ $(document).ready(function(){
       });
 
   } )
-})
+
+
+});*/

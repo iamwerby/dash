@@ -3,10 +3,11 @@ $(function () {
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: 'containerHighcharts',
                 type: 'line',
-                marginRight: 130,
-                marginBottom: 25
+                marginRight: 0,
+                marginBottom: 25,
+                width: 500
             },
             title: {
                 text: 'Monthly Average Temperature',
@@ -40,9 +41,9 @@ $(function () {
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-                x: -10,
+/*                x: -10,
                 y: 100,
-                borderWidth: 0
+                borderWidth: 0*/
             },
             series: [{
                 name: 'Tokyo',

@@ -68,7 +68,8 @@ gulp.task('libs', function () {
 			'node_modules/jquery/dist/jquery.min.js',
 			'node_modules/jquery-ui-dist/jquery-ui.min.js',
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-			'node_modules/moment/min/moment.min.js'
+			'node_modules/moment/min/moment.min.js',
+			'node_modules/highcharts/highcharts.js'
 		])
 	    .pipe(concat('lib.js'))
 	    .pipe(uglify())
