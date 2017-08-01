@@ -1,29 +1,31 @@
 $(function () {
     var chart;
+    var chart2;
+    var chart3;
+
     $(document).ready(function() {
+
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'containerHighcharts',
                 type: 'line',
                 marginRight: 0,
                 marginBottom: 25,
-                width: 500
+                marginTop: 40,
+                width: 670,
+                height:210
             },
             title: {
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com',
-                x: -20
+                /*text: 'Monthly Average Temperature',
+                x: -20, //center*/
+                style: { "display": "none"}
             },
             xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00']
             },
             yAxis: {
                 title: {
-                    text: 'Temperature (°C)'
+                    text: '',
                 },
                 plotLines: [{
                     value: 0,
@@ -33,32 +35,136 @@ $(function () {
             },
             tooltip: {
                 formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        this.x +': '+ this.y +'°C';
+                        return '<b>'+ this.series.name +'</b><br/>'+ this.y ;
                 }
             },
             legend: {
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-/*                x: -10,
+                x: -10,
                 y: 100,
-                borderWidth: 0*/
+                borderWidth: 0,
+                enabled: false
             },
             series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                name: 'Total visitors:',
+                data: [832, 421, 300, 520, 1233, 2119, 1444, 955]
             }]
         });
-    });
+
+        chart2 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerHighcharts2',
+                type: 'line',
+                marginRight: 0,
+                marginBottom: 25,
+                marginTop: 40,
+                width: 670,
+                height:210
+            },
+            title: {
+                /*text: 'Monthly Average Temperature',
+                x: -20, //center*/
+                style: { "display": "none"}
+            },
+            xAxis: {
+                categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00']
+            },
+            yAxis: {
+                title: {
+                    text: '',
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+ this.y ;
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -20,
+                y: 0,
+                borderWidth: 1,
+                enabled: true
+            },
+            series: [{
+                name: 'Some order',
+                data: [33, 521, 300, 520, 6433, 2119, 1444, 955]
+            },
+            {
+                name: 'Some order2',
+                data: [-2266, 421, 4, 520, 22, 2119, 1833, 955]
+            },
+            {
+                name: 'Some order3',
+                data: [13, 421, 300, 520, 1233, 355, 1444, 955]
+            }]
+        });
+
+        chart3 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'containerHighcharts3',
+                type: 'line',
+                marginRight: 0,
+                marginBottom: 25,
+                marginTop: 40,
+                width: 670,
+                height:210
+            },
+            title: {
+                /*text: 'Monthly Average Temperature',
+                x: -20, //center*/
+                style: { "display": "none"}
+            },
+            xAxis: {
+                categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00']
+            },
+            yAxis: {
+                title: {
+                    text: '',
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+ this.y + " people";
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -20,
+                y: 0,
+                borderWidth: 1,
+                enabled: true
+            },
+            series: [{
+                name: 'Ukraine',
+                data: [33, 521, 300, 20, 633, 219, 44, 33]
+            },
+            {
+                name: 'Russia',
+                data: [266, 41, 4, 520, 22, 119, 33, 55]
+            },
+            {
+                name: 'USA',
+                data: [13, 4, 30, 50, 123, 35, 144, 95]
+            }]
+        });
     
+
+    }); 
 });
