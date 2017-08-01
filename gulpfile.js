@@ -64,8 +64,12 @@ gulp.task('images', function () {
 
 //scripts
 gulp.task('libs', function () {
-		gulp.src(['node_modules/jquery/dist/jquery.min.js',
-				   'node_modules/highcharts/modules/exporting.js'])
+		gulp.src([
+			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/jquery-ui-dist/jquery-ui.min.js',
+			'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+			'node_modules/moment/min/moment.min.js'
+		])
 	    .pipe(concat('lib.js'))
 	    .pipe(uglify())
 	    .pipe(gulp.dest('prod/js'))
