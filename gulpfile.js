@@ -9,6 +9,8 @@ let gulp = require('gulp'),
 	del = require('del'),
 	prefix = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin');
+	var Highcharts = require('highcharts');
+
 
 //complete 
 gulp.task('complete', function(){
@@ -62,7 +64,8 @@ gulp.task('images', function () {
 
 //scripts
 gulp.task('libs', function () {
-		gulp.src(['node_modules/jquery/dist/jquery.min.js','node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'])
+		gulp.src(['node_modules/jquery/dist/jquery.min.js',
+				   'node_modules/highcharts/modules/exporting.js'])
 	    .pipe(concat('lib.js'))
 	    .pipe(uglify())
 	    .pipe(gulp.dest('prod/js'))
