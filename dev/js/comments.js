@@ -40,6 +40,7 @@ function pullDefaultComments(data) {
             commentUserIP = $('<p>', { 'class': 'info2__comment-user-ip',
                 html: '<span>IP:</span>' + data.defaultComments[i].ip
             }).appendTo(commentUserHeader),
+            commentUserReporst = $('<button>',{'class': 'info2__comment-user-repost'}).appendTo(commentUserHeader),
             commentUserName = $('<div>', {'class': 'info2__comment-user-name'}).appendTo(commentUserHeaderInfo),
             commentUserNameP = $('<p>', {html: data.defaultComments[i].name}).appendTo(commentUserName),
             commentUserNameTime = $('<time>', {html: moment(data.defaultComments[i].time,'DD/MM/YYYY').fromNow()}).appendTo(commentUserName),
@@ -92,20 +93,31 @@ function createNewComment(commentText, commentName, commentTime) {
 
 function fromLocalStorage(comments) {
     var temp = JSON.parse(localStorage.getItem('userComments'));
-    for (var i=0; i<temp.length; i++){
-        var newComment = Object.create(comment);
-        newComment.name = temp[i]['name'];
-        newComment.text = temp[i]['text'];
-        newComment.time = temp[i]['time'];
-        comments.push(newComment);
-        createNewComment(newComment.text,newComment.name,moment(newComment.time));
+    if (temp !== null){
+        for (var i=0; i<temp.length; i++){
+            var newComment = Object.create(comment);
+            newComment.name = temp[i]['name'];
+            newComment.text = temp[i]['text'];
+            newComment.time = temp[i]['time'];
+            comments.push(newComment);
+            createNewComment(newComment.text,newComment.name,moment(newComment.time));
+        }
     }
+}
+
+function replyTo() {
+    $('.info2__comment-user-repost').on('click',function () {
+        var name = $(this).parent().find('.info2__comment-user-name p').text();
+        $('#formText').text('@'+ name +': ');
+    });
 }
 
 $(document).ready(function () {
 
     pullDefaultComments(data);
     fromLocalStorage(comments);
+
+   replyTo();
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
