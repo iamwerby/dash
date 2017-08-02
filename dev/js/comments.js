@@ -30,7 +30,7 @@ var data = { 'defaultComments':[
 
 function pullDefaultComments(data) {
     for (var i in data.defaultComments){
-        var commentUserRepost = $('<div>', {'class': 'info2__comment-user'}),
+        var commentUserRepost = $('<div>', {'class': 'info2__comment-user', 'data-time':moment(data.defaultComments[i].time,'DD/MM/YYYY')}),
             commentUserHeader = $('<div>', {'class': 'info2__comment-user-header'}).appendTo(commentUserRepost),
             commentUserHeaderInfo = $('<div>', {'class': 'info2__comment-user-header-info'}).appendTo(commentUserHeader),
             commentUserAvatar = $('<div>', {
@@ -67,7 +67,7 @@ function toLocalStorage(comments) {
 }
 
 function createNewComment(commentText, commentName, commentTime) {
-    var commentUserRepost = $('<div>', {'class': 'info2__comment-user--repost'}),
+    var commentUserRepost = $('<div>', {'class': 'info2__comment-user--repost', 'data-time':commentTime}),
         commentUserHeader = $('<div>', {'class': 'info2__comment-user-header'}).appendTo(commentUserRepost),
         commentUserHeaderInfo = $('<div>', {'class': 'info2__comment-user-header-info'}).appendTo(commentUserHeader),
         commentUserAvatar = $('<div>', {
@@ -112,12 +112,40 @@ function replyTo() {
     });
 }
 
+function commentFormClear(){
+    $('#formName').val('');
+    $('#formText').val('');
+}
+
+function hideOldComments() {
+    var allComments = $('.info2__comment-user,.info2__comment-user--repost');
+    var REFERENCE = moment();
+    var today = REFERENCE.clone().startOf('day');
+
+    for (var i=0; i<allComments.length; i++){
+        var commentDate = moment(allComments[i].dataset.time);
+        if(!commentDate.isSame(today,'d')){
+           $(allComments[i]).hide();
+        }
+    }
+}
+
 $(document).ready(function () {
 
     pullDefaultComments(data);
     fromLocalStorage(comments);
+    replyTo();
 
-   replyTo();
+    $('#check').change(function() {
+        if (this.checked) {
+           hideOldComments();
+        } else {
+            pullDefaultComments(data);
+            fromLocalStorage(comments);
+        }
+    });
+
+    toggleComments();
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
@@ -134,6 +162,8 @@ $(document).ready(function () {
         createNewComment(newComment.text,newComment.name,newComment.time);
 
         toLocalStorage(comments);
+
+        commentFormClear();
 
     });
 });
