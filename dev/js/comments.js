@@ -1,11 +1,12 @@
 'use strict';
 
 var comments = [],
-    defaultComment = {
+    comment = {
         name: 'No Name',
         text: 'No Text',
         time: 0,
-        ip: 0
+        ip: 0,
+        online: false
     };
 
 var data = { 'defaultComments':[
@@ -64,18 +65,6 @@ function toLocalStorage(comments) {
     localStorage.setItem('userComments',commentsJSON);
 }
 
-function fromLocalStorage(comments) {
-    var temp = JSON.parse(localStorage.getItem('userComments'));
-    for (var i=0; i<temp.length; i++){
-        var newComment = Object.create(defaultComment);
-        newComment.name = temp[i]['name'];
-        newComment.text = temp[i]['text'];
-        newComment.time = temp[i]['time'];
-        comments.push(newComment);
-        //createTask(temp[i]['content'],tasks.length - 1,temp[i]['isDone']);
-    }
-}
-
 function createNewComment(commentText, commentName, commentTime) {
     var commentUserRepost = $('<div>', {'class': 'info2__comment-user--repost'}),
         commentUserHeader = $('<div>', {'class': 'info2__comment-user-header'}).appendTo(commentUserRepost),
@@ -101,17 +90,38 @@ function createNewComment(commentText, commentName, commentTime) {
     $(".info2__comment-body").append(commentUserRepost);
 }
 
+function fromLocalStorage(comments) {
+    var temp = JSON.parse(localStorage.getItem('userComments'));
+    for (var i=0; i<temp.length; i++){
+        var newComment = Object.create(comment);
+        newComment.name = temp[i]['name'];
+        newComment.text = temp[i]['text'];
+        newComment.time = temp[i]['time'];
+        comments.push(newComment);
+        createNewComment(newComment.text,newComment.name,moment(newComment.time));
+    }
+}
+
 $(document).ready(function () {
 
     pullDefaultComments(data);
+    fromLocalStorage(comments);
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
-        var userName = $('#formName').val(),
-            userComment = $('#formText').val(),
-            commentTime = moment();
 
-        createNewComment(userComment,userName,commentTime);
+        var newComment = Object.create(comment);
+
+        newComment.name = $('#formName').val();
+        newComment.text = $('#formText').val();
+        newComment.time = moment();
+        newComment.online = true;
+
+        comments.push(newComment);
+
+        createNewComment(newComment.text,newComment.name,newComment.time);
+
+        toLocalStorage(comments);
 
     });
 });
