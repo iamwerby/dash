@@ -400,7 +400,8 @@ body {
 
 				li {
 					display:inline-block;
-					padding-bottom: 14px;
+					padding-bottom: 15px;
+					filter: grayscale(100%);
 
 					&:nth-child(2) .menu-top__config-item::after {
 						background-image: url('../images/icon-top2.png');
@@ -412,6 +413,7 @@ body {
 
 					&.active {
 						border-bottom: 4px solid #000;
+						filter: grayscale(0%);
 
 						.menu-top__config-item {
 							color:#000;
@@ -432,6 +434,7 @@ body {
 
 					&--active {
 						color:#000;
+
 					}
 					
 					&::after {
@@ -728,6 +731,7 @@ background-image: url('../images/cap.png');  */
 
 			&__comment-header {
 				display: flex;
+				width: 100%;
 				justify-content: space-between;
 				align-items: center;
 				border-bottom: 1px solid #e8e8e8;
@@ -808,12 +812,16 @@ background-image: url('../images/cap.png');  */
 				flex-direction: column;
 				justify-content: flex-start;
 				align-items: flex-start;
+max-height: 1000px;
+overflow: auto;
 			}
 			
 			&__comment-user {
 				width: 100%;
 
 				&--repost {
+
+					width: 100%;
 					
 					.info2__comment-user-header {
 						flex-direction: row-reverse;
@@ -847,14 +855,16 @@ background-image: url('../images/cap.png');  */
 					}
 
 					.info2__comment-user-body {
-						padding-left: 0;
+						margin-left: 0;
+						padding-left: 110px;
 						padding-right: 25px;
 					}
 
 					.info2__comment-user-message {
 						margin-left: 0;
 						margin-right: 40px;
-						margin-left: 110px;
+						min-width: 0px;
+/* 						margin-left: 110px; */
 					}
 
 				}
@@ -940,17 +950,21 @@ background-image: url('../images/cap.png');  */
 			&__comment-user {
 
 				&-body {
-					display: flex;
+					/* display: block;
 					align-items: flex-start;
 					justify-content: flex-end;
 					padding-left: 50px;
 					padding-bottom: 20px;
-					border-bottom: 1px solid #e8e8e8;
+					border-bottom: 1px solid #e8e8e8; */
+					margin-left: 50px;
+					display: flex;
+					margin-bottom: 20px;
+					align-items: flex-start;
 				}
 
 				&-status {
 					width: 20px;
-					height:20px;
+					height:16px;
 					border-radius: 50%;
 					background-color: #eadd74;
 					align-self: flex-start;
@@ -972,6 +986,7 @@ background-image: url('../images/cap.png');  */
 					outline: none;
 					margin: 0;
 					margin-left: 40px;
+					min-width: 425px;
 				}
 			}
 
@@ -1020,8 +1035,7 @@ background-image: url('../images/cap.png');  */
 				}
 
 				&-body {
-					height: 275px;
-					background-color: #ccc;
+
 				}
 			}
 
@@ -1057,3 +1071,7 @@ background-image: url('../images/cap.png');  */
 
 
 
+thead{
+	background-color: #e37c6c;
+	border-top: #d67566;
+}

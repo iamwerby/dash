@@ -10,7 +10,7 @@ let gulp = require('gulp'),
 	prefix = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin'),
 	Highcharts = require('highcharts'),
-    concatCss = require('gulp-concat-css'),
+	concatCss = require('gulp-concat-css'),
     babel  = require('gulp-babel');
 
 
@@ -63,7 +63,8 @@ gulp.task('browser-sync', function () {
 
 //images
 gulp.task('images', function () {
-    gulp.src('./dev/img/*')
+    gulp.src(['./dev/img/*',
+    		  'node_modules/jquery-ui-dist/images/*'])
         .pipe(imagemin())
         .pipe(gulp.dest('./prod/images'));
 
@@ -108,7 +109,7 @@ gulp.task('watch', ['browser-sync', 'libs', 'css-minify', 'templ', 'scripts'], f
 	gulp.watch('dev/js/**/*.js', ['scripts'])
 	gulp.watch('dev/*.html', browserSync.reload)
 	gulp.watch('dev/**/*.html', ['templ']);
-	gulp.watch('dev/css/style.css', ['css-minify'])
+	gulp.watch('dev/css/**/*.css', ['css-minify'])
 	gulp.watch('img/**/*.{png,jpg,jpeg,gif,svg}', {cwd: './dev/'}, ['images']);
 });
 

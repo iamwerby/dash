@@ -1,10 +1,9 @@
 /**
  * Created by Alex on 31.07.2017.
  */
-/*"use strict";
-jQuery.noConflict();
+"use strict";
 
-$(document).ready(function($) {
+$(document).ready(function() {
     var counter = 0;
 
   $( '.menu-top__config li' ).on( 'click', function (event) {
@@ -28,4 +27,4 @@ $(document).ready(function($) {
   } )
 
 
-});*/
+});
