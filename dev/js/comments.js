@@ -128,12 +128,38 @@ let hideOldComments = () => { //обработчик скрытия старых
     }
 };
 
+let checkCommName = (name) => { //проверка формата имени
+    let nameRegEx = /^[a-zA-Z '-]{1,15}$/;
+    if (!nameRegEx.test(name)){
+        $('#badCommentNameAlert').show('slow');
+        return false;
+    } else $('#badCommentNameAlert').hide('slow'); return true
+};
+
+let checkCommText = (text) => { //проверка формата коммента
+    let nameRegEx = /^[a-zA-Z0-9 ._@'"-]{1,500}$/;
+    if (!nameRegEx.test(text)){
+        $('#badCommentTextAlert').show('slow');
+        return false;
+    } else $('#badCommentTextAlert').hide('slow'); return true
+};
+
+let checkEmptyForm = (name,text) => { //Проверка полей формы на пустоту
+  if (!$(name).val() || !$(text).val()){
+      $('#emptyCommentAlert').show('slow');
+      return false
+  } else $('#emptyCommentAlert').hide(); return true
+};
+
 $(document).ready(function () { // main
+    $('#emptyCommentAlert').hide();
+    $('#badCommentNameAlert').hide();
+    $('#badCommentTextAlert').hide();
 
     pullDefaultComments(data);
     fromLocalStorage(comments);
 
-    $('#check').change(function() {
+    $('#check').change(function() { //обрабатываем переключалку старых / новых комментов
         if (this.checked) {
            hideOldComments();
         } else {
@@ -144,25 +170,34 @@ $(document).ready(function () { // main
         }
     });
 
+    $('#formName').on('change', function () {
+       checkCommName($(this).val());
+    });
+
+    $('#formText').on('change', function () {
+        checkCommText($(this).val());
+    });
+
     replyTo();
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
 
-        let newComment = Object.create(comment);
+        let newComment = Object.create(comment),
+            newCommentName = $('#formName').val(),
+            newCommentText = $('#formText').val();
 
-        newComment.name = $('#formName').val();
-        newComment.text = $('#formText').val();
-        newComment.time = moment();
-        newComment.online = true;
+        if (checkEmptyForm($('#formName'),$('#formText')) && checkCommName(newCommentName) && checkCommText(newCommentText)){
+            newComment.name = newCommentName;
+            newComment.text = newCommentText;
+            newComment.time = moment();
+            newComment.online = true;
 
-        comments.push(newComment);
+            comments.push(newComment);
 
-        createNewComment(newComment.text,newComment.name,newComment.time);
-
-        toLocalStorage(comments);
-
-        commentFormClear();
-
+            createNewComment(newComment.text,newComment.name,newComment.time);
+            toLocalStorage(comments);
+            commentFormClear();
+        }
     });
 });

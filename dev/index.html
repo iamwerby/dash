@@ -327,8 +327,11 @@
 					<div class="info2__datepicker-body">
 					</div>
 					<div class="info2__form">
+						<div id="emptyCommentAlert" class="alert alert-danger" role="alert">Fields cannot be empty</div>
 						<form name="Comment">
+							<div id="badCommentNameAlert" class="alert alert-danger" role="alert">Name has characters not allowed</div>
 							<input type="text" id="formName" placeholder="Your name">
+							<div id="badCommentTextAlert" class="alert alert-danger" role="alert">Text has characters not allowed</div>
 							<textarea placeholder="Your message" id="formText"></textarea>
 							<input type="submit" value="Send">
 						</form>
