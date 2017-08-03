@@ -10,7 +10,8 @@ let gulp = require('gulp'),
 	prefix = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin'),
 	Highcharts = require('highcharts'),
-    babel  = require('gulp-babel');
+    babel  = require('gulp-babel'),
+    concatCss = require('gulp-concat-css');
 
 
 //complete 
@@ -36,8 +37,12 @@ gulp.task('styles', function () {
 });
 
 gulp.task('css-minify', ['styles'], function () {
-	return gulp.src('dev/css/style.css')
-	.pipe(cssnano())
+	return gulp.src([
+		'dev/css/style.css',
+        'node_modules/bootstrap/dist/css/bootstrap.css'
+	])
+        .pipe(concatCss("style.css"))
+		.pipe(cssnano())
 	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('prod/css'))
 	.pipe(browserSync.reload({stream: true}))
