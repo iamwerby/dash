@@ -1,6 +1,6 @@
 'use strict';
 
-var comments = [],
+let comments = [],
     comment = {
         name: 'No Name',
         text: 'No Text',
@@ -144,8 +144,6 @@ $(document).ready(function () {
             fromLocalStorage(comments);
         }
     });
-
-    toggleComments();
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();

@@ -8,8 +8,9 @@ let gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	del = require('del'),
 	prefix = require('gulp-autoprefixer'),
-	imagemin = require('gulp-imagemin');
-	var Highcharts = require('highcharts');
+	imagemin = require('gulp-imagemin'),
+	Highcharts = require('highcharts'),
+    babel  = require('gulp-babel');
 
 
 //complete 
@@ -69,7 +70,8 @@ gulp.task('libs', function () {
 			'node_modules/jquery-ui-dist/jquery-ui.min.js',
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
 			'node_modules/moment/min/moment.min.js',
-			'node_modules/highcharts/highcharts.js'
+			'node_modules/highcharts/highcharts.js',
+			'node_modules/bootstrap/dist/js/bootstrap.min.js'
 		])
 	    .pipe(concat('lib.js'))
 	    .pipe(uglify())
@@ -79,6 +81,7 @@ gulp.task('libs', function () {
 
 gulp.task('scripts', function () {
      gulp.src('dev/js/*.js')
+		 .pipe(babel({presets: ['es2015']}))
     .pipe(concat('functions.js'))
     .pipe(uglify())
     .pipe(gulp.dest('prod/js'))
