@@ -1,6 +1,6 @@
 'use strict';
 
-let comments = [],
+let comments = [], //создаем массив для новых комментариев
     comment = {
         name: 'No Name',
         text: 'No Text',
@@ -9,11 +9,11 @@ let comments = [],
         online: false
     };
 
-var data = { 'defaultComments':[
+let data = { 'defaultComments':[ //JSON обьект для дефолтных комментариев
     {
         'name':'John Stone',
         'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...',
-        'time': '31/07/2017',
+        'time': '07/31/2017',
         'ip': '172.10.56.3',
         'img': 'images/johnstoneavatar.png',
         'online': true
@@ -21,16 +21,16 @@ var data = { 'defaultComments':[
     {
         'name':'Anna Anderson',
         'text': 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        'time': '01/08/2017',
+        'time': '08/01/2017',
         'ip': '172.10.56.3',
         'img': 'images/annaavatar.png',
         'online': false
     }
 ]};
 
-function pullDefaultComments(data) {
-    for (var i in data.defaultComments){
-        var commentUserRepost = $('<div>', {'class': 'info2__comment-user', 'data-time':moment(data.defaultComments[i].time,'DD/MM/YYYY')}),
+let pullDefaultComments = (data) => {
+    for (let i in data.defaultComments){
+        let commentUserRepost = $('<div>', {'class': 'info2__comment-user', 'data-time':moment(data.defaultComments[i].time).format('DD/MM/YYYY')}),
             commentUserHeader = $('<div>', {'class': 'info2__comment-user-header'}).appendTo(commentUserRepost),
             commentUserHeaderInfo = $('<div>', {'class': 'info2__comment-user-header-info'}).appendTo(commentUserHeader),
             commentUserAvatar = $('<div>', {
@@ -43,7 +43,7 @@ function pullDefaultComments(data) {
             commentUserReporst = $('<button>',{'class': 'info2__comment-user-repost'}).appendTo(commentUserHeader),
             commentUserName = $('<div>', {'class': 'info2__comment-user-name'}).appendTo(commentUserHeaderInfo),
             commentUserNameP = $('<p>', {html: data.defaultComments[i].name}).appendTo(commentUserName),
-            commentUserNameTime = $('<time>', {html: moment(data.defaultComments[i].time,'DD/MM/YYYY').fromNow()}).appendTo(commentUserName),
+            commentUserNameTime = $('<time>', {html: moment(data.defaultComments[i].time,'MM/DD/YYYY').fromNow()}).appendTo(commentUserName),
             commentUserBody = $('<div>', {'class': 'info2__comment-user-body'}).appendTo(commentUserRepost),
             commentUserBodyStatus = $('<div>').appendTo(commentUserBody),
             commentUserBodyP = $('<p>', {
@@ -59,15 +59,10 @@ function pullDefaultComments(data) {
 
         $(".info2__comment-body").append(commentUserRepost);
     }
-}
+};
 
-function toLocalStorage(comments) {
-    var commentsJSON = JSON.stringify(comments);
-    localStorage.setItem('userComments',commentsJSON);
-}
-
-function createNewComment(commentText, commentName, commentTime) {
-    var commentUserRepost = $('<div>', {'class': 'info2__comment-user--repost', 'data-time':commentTime}),
+let createNewComment = (commentText, commentName, commentTime) => {
+    let commentUserRepost = $('<div>', {'class': 'info2__comment-user--repost', 'data-time':moment(commentTime).format('DD/MM/YYYY')}),
         commentUserHeader = $('<div>', {'class': 'info2__comment-user-header'}).appendTo(commentUserRepost),
         commentUserHeaderInfo = $('<div>', {'class': 'info2__comment-user-header-info'}).appendTo(commentUserHeader),
         commentUserAvatar = $('<div>', {
@@ -89,13 +84,18 @@ function createNewComment(commentText, commentName, commentTime) {
 
 
     $(".info2__comment-body").append(commentUserRepost);
-}
+};
 
-function fromLocalStorage(comments) {
-    var temp = JSON.parse(localStorage.getItem('userComments'));
+let toLocalStorage = (comments) => { //преобразуем наш массив в JSON и отправляем в Local Storage
+    let commentsJSON = JSON.stringify(comments);
+    localStorage.setItem('userComments',commentsJSON);
+};
+
+let fromLocalStorage = (comments) => { //берем данные из UserComments в Local Storage
+    let temp = JSON.parse(localStorage.getItem('userComments'));
     if (temp !== null){
-        for (var i=0; i<temp.length; i++){
-            var newComment = Object.create(comment);
+        for (let i=0; i<temp.length; i++){
+            let newComment = Object.create(comment);
             newComment.name = temp[i]['name'];
             newComment.text = temp[i]['text'];
             newComment.time = temp[i]['time'];
@@ -103,52 +103,53 @@ function fromLocalStorage(comments) {
             createNewComment(newComment.text,newComment.name,moment(newComment.time));
         }
     }
-}
+};
 
-function replyTo() {
+let replyTo = () => { //обработчик на reply to кнопку возле старого коммента
     $('.info2__comment-user-repost').on('click',function () {
-        var name = $(this).parent().find('.info2__comment-user-name p').text();
+        let name = $(this).parent().find('.info2__comment-user-name p').text();
         $('#formText').text('@'+ name +': ');
     });
-}
+};
 
-function commentFormClear(){
+let commentFormClear = () => { //обработчик по очистке полей формы после ввода
     $('#formName').val('');
     $('#formText').val('');
-}
+};
 
-function hideOldComments() {
-    var allComments = $('.info2__comment-user,.info2__comment-user--repost');
-    var REFERENCE = moment();
-    var today = REFERENCE.clone().startOf('day');
+let hideOldComments = () => { //обработчик скрытия старых комментов (больше 1 дня)
+    let allComments = $('.info2__comment-user,.info2__comment-user--repost');
 
-    for (var i=0; i<allComments.length; i++){
-        var commentDate = moment(allComments[i].dataset.time);
-        if(!commentDate.isSame(today,'d')){
+    for (let i=0; i<allComments.length; i++){
+        let daysDiff = moment().diff(moment(allComments[i].dataset.time, 'DD/MM/YYYY'), 'days');
+        if(daysDiff > 0){
            $(allComments[i]).hide();
         }
     }
-}
+};
 
-$(document).ready(function () {
+$(document).ready(function () { // main
 
     pullDefaultComments(data);
     fromLocalStorage(comments);
-    replyTo();
 
     $('#check').change(function() {
         if (this.checked) {
            hideOldComments();
         } else {
+            $('.info2__comment-body').empty();
             pullDefaultComments(data);
             fromLocalStorage(comments);
+            replyTo();
         }
     });
+
+    replyTo();
 
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
 
-        var newComment = Object.create(comment);
+        let newComment = Object.create(comment);
 
         newComment.name = $('#formName').val();
         newComment.text = $('#formText').val();
