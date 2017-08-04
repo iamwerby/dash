@@ -82,8 +82,8 @@ let createNewComment = (commentText, commentName, commentTime) => {
             html: commentText
         }).appendTo(commentUserBody);
 
-
     $(".info2__comment-body").append(commentUserRepost);
+
 };
 
 let toLocalStorage = (comments) => { //преобразуем наш массив в JSON и отправляем в Local Storage
@@ -137,7 +137,7 @@ let checkCommName = (name) => { //проверка формата имени
 };
 
 let checkCommText = (text) => { //проверка формата коммента
-    let textRegEx = /^@[a-zA-Z0-9 ._@:'"-]{2,500}$/;
+    let textRegEx = /^[@a-zA-Z0-9 .,_@:!?()'"-]{2,500}$/;
     if (!textRegEx.test(text)){
         $('#badCommentTextAlert').show('slow');
         return false;
@@ -178,8 +178,6 @@ $(document).ready(function () { // main
         checkCommText($(this).val());
     });
 
-    replyTo();
-
     $("form[name='Comment']").submit(function (e) {
         e.preventDefault();
 
@@ -200,4 +198,5 @@ $(document).ready(function () { // main
             commentFormClear();
         }
     });
+    replyTo();
 });
