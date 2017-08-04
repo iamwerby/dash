@@ -129,7 +129,7 @@ let hideOldComments = () => { //обработчик скрытия старых
 };
 
 let checkCommName = (name) => { //проверка формата имени
-    let nameRegEx = /^[a-zA-Z '-]{1,15}$/;
+    let nameRegEx = /^[^-\s][a-zA-Z0-9_\s-]{2,15}$/;
     if (!nameRegEx.test(name)){
         $('#badCommentNameAlert').show('slow');
         return false;
@@ -137,8 +137,8 @@ let checkCommName = (name) => { //проверка формата имени
 };
 
 let checkCommText = (text) => { //проверка формата коммента
-    let nameRegEx = /^[a-zA-Z0-9 ._@'"-]{1,500}$/;
-    if (!nameRegEx.test(text)){
+    let textRegEx = /^@[a-zA-Z0-9 ._@:'"-]{2,500}$/;
+    if (!textRegEx.test(text)){
         $('#badCommentTextAlert').show('slow');
         return false;
     } else $('#badCommentTextAlert').hide('slow'); return true
