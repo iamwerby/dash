@@ -5,22 +5,21 @@ function checkForFilledInput(value) {
     var result = value.search(regExp);
 
     if (!value || result == -1) {
-        alert('Field is empty, please enter info into field');
+        $('#jsSearch').popover('show');
         return false;
     }
 
-    alert('Its OK');
+    $('#jsSearch').popover('destroy');
     return true;
 }
 
-
 $(document).ready(function(){
+    $('#jsSearch').popover('destroy');
 
     $( '.header__menu-items li:first-child' ).on( 'click', function (event) {
         event.preventDefault();
         var value = $ ( '#jsSearch' ).val();
         checkForFilledInput(value);
-
     } );
 
 });
