@@ -10,6 +10,8 @@ function checkForFilledInput(value) {
     }
 
     $('#jsSearch').popover('destroy');
+    alert("Проверочка, всё работает");
+    $('#jsSearch').val('');
     return true;
 }
 

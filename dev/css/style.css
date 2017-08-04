@@ -3,6 +3,10 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+a:focus, a:hover {
+  color: #23527c;
+  text-decoration: none; }
+
 body {
   padding: 20px;
   background-color: #ccc; }

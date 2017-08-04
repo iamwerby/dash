@@ -38,10 +38,10 @@ gulp.task('styles', function () {
 
 gulp.task('css-minify', ['styles'], function () {
 	return gulp.src([
-		'dev/css/style.css',
+		'dev/css/normalize.css',
         'dev/css/jquery-ui.css',
-        'dev/css/jquery-ui.theme.css',
-        'node_modules/bootstrap/dist/css/bootstrap.css'
+        'node_modules/bootstrap/dist/css/bootstrap.css',
+        'dev/css/style.css'
 	])
         .pipe(concatCss("style.css"))
 		.pipe(cssnano())

@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
  
+a:focus, a:hover {
+  color: #23527c;
+  text-decoration: none; }
+ 
 $userColor: #8fd7d4;
 
 @mixin fontPrimary {
