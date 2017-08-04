@@ -403,6 +403,10 @@ body {
 					padding-bottom: 15px;
 					filter: grayscale(100%);
 
+					& a:hover{
+						text-decoration: none;
+					}
+
 					&:nth-child(2) .menu-top__config-item::after {
 						background-image: url('../images/icon-top2.png');
 					}
@@ -426,11 +430,11 @@ body {
 					padding: 40px 20px 0 20px;
 					display: block;
 					@include fontPrimary;
-					text-decoration: none;
 					color:#b5adac;
 					color:#c4c4c4;
 					font-weight: bold;
 					position: relative;
+					text-decoration: none;
 
 					&--active {
 						color:#000;
@@ -1035,7 +1039,7 @@ overflow: auto;
 				}
 
 				&-body {
-
+					padding-left: 20px;
 				}
 			}
 

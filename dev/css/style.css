@@ -378,6 +378,8 @@ body {
           padding-bottom: 15px;
           -webkit-filter: grayscale(100%);
                   filter: grayscale(100%); }
+          .content .right-column .menu-top__config li a:hover {
+            text-decoration: none; }
           .content .right-column .menu-top__config li:nth-child(2) .menu-top__config-item::after {
             background-image: url("../images/icon-top2.png"); }
           .content .right-column .menu-top__config li:nth-child(3) .menu-top__config-item::after {
@@ -395,11 +397,11 @@ body {
           font-family: 'Open Sans', sans-serif;
           font-size: 14px;
           line-height: 20px;
-          text-decoration: none;
           color: #b5adac;
           color: #c4c4c4;
           font-weight: bold;
-          position: relative; }
+          position: relative;
+          text-decoration: none; }
           .content .right-column .menu-top__config-item--active {
             color: #000; }
           .content .right-column .menu-top__config-item::after {
@@ -1012,6 +1014,8 @@ background-image: url('../images/cap.png');  */ }
           background-image: url("../images/icon-date.png");
           background-repeat: no-repeat;
           background-position: center; }
+      .content .right-column .info2__datepicker-body {
+        padding-left: 20px; }
       .content .right-column .info2__form {
         padding: 20px;
         width: 100%; }
