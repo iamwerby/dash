@@ -15,16 +15,16 @@
 			<p>Novus<br><span>Admin Panel Template</span></p>
 		</a>
 		<div class="header__menu">
-			<input type="search" placeholder="Search..." id="jsSearch">
+			<input type="search" placeholder="Search..." id="jsSearch" data-container="body" data-toggle="popover" data-placement="left" data-content="Please enter a valid search request.">
 			<ul class="header__menu-items">
 				<li class="header__menu-item">
 				</li>
-				<li class="header__menu-item">
+				<li class="header__menu-item" data-action='modal'>
 				</li>
-				<li class="header__menu-item">
+				<li class="header__menu-item" data-action='modal'>
 					<span class="header__menu-notification">4</span>
 				</li>
-				<li class="header__menu-item">
+				<li class="header__menu-item" data-action='modal'>
 				</li>
 			</ul>
 		</div>
@@ -38,32 +38,32 @@
 				<p>Dmitrij Perejro</p>
 				<a href="#">@DmitrijPerejro</a>
 			</div>
-			<button class="user__block-button">></button>
+			<button class="user__block-button" data-action='modal'>></button>
 		</div>
 		<ul class="user__block-stats">
 			<li class="user__block-item">
-				<a href="#">
+				<a href="#" data-action='modal'>
 					<p class="user__block-item-title">Users</p>
 					<p class="user__block-item-count">218K</p>
 					<span class="user__block-item-notification">+14</span>
 				</a>
 			</li>
 			<li class="user__block-item">
-				<a href="#">
+				<a href="#" data-action='modal'>
 					<p class="user__block-item-title">Orders</p>
 					<p class="user__block-item-count">1414</p>
 					<span class="user__block-item-notification">+1</span>
 				</a>
 			</li>
 			<li class="user__block-item">
-				<a href="#">
+				<a href="#" data-action='modal'>
 					<p class="user__block-item-title">Visits</p>
 					<p class="user__block-item-count">102</p>
 					<span class="user__block-item-notification">+102</span>
 				</a>
 			</li>
 			<li class="user__block-item">
-				<a href="#">
+				<a href="#" data-action='modal'>
 					<p class="user__block-item-title">Balance</p>
 					<p class="user__block-item-count">$55.222</p>
 				</a>
@@ -74,26 +74,26 @@
 		<div class="left-column">
 			<ul class="left-menu">
 				<li>
-					<a href="" class="left-menu__item">Dashboard</a>
+					<a href="#" class="left-menu__item" data-action='modal'>Dashboard</a>
 				</li>
 				<li>
 					<a href="" class="left-menu__item left-menu__item--active">UI Elements</a>
 				</li>
 				<li>
-					<a href="" class="left-menu__item">Form Stuff</a>
+					<a href="#" class="left-menu__item" data-action='modal'>Form Stuff</a>
 				</li>
 				<li>
-					<a href="" class="left-menu__item">Mesages</a>
+					<a href="#" class="left-menu__item" data-action='modal'>Mesages</a>
 					<span class="left-menu__item-notification">5</span>
 				</li>
 				<li>
-					<a href="" class="left-menu__item left-menu__item--fixed">Statistic</a>
+					<a href="#" class="left-menu__item left-menu__item--fixed" data-action='modal'>Statistic</a>
 				</li>
 				<li>
-					<a href="" class="left-menu__item">Tables</a>
+					<a href="#" class="left-menu__item" data-action='modal'>Tables</a>
 				</li>
 				<li>
-					<a href="" class="left-menu__item">Other Pages</a>
+					<a href="#" class="left-menu__item" data-action='modal'>Other Pages</a>
 				</li>
 			</ul>
 		</div>
@@ -115,7 +115,7 @@
 					</li>	
 				</ul>
 			</section>
-			<section class="settings">
+			<section class="settings" data-action='modal'>
 				<div class="hex">
 					<div class="corner1"></div>
 					<div class="corner2"></div>
@@ -159,7 +159,7 @@
 							<p class="about__descrp">Today's visitors</p>
 							<time>5:23 am</time>
 							<div class="options">
-								<button>+</button>
+								<button data-action='modal'>+</button>
 								<span>14,880</span>
 							</div>
 						</div>
@@ -172,7 +172,7 @@
 							<p class="about__descrp">Test</p>
 							<time>5:23 am</time>
 							<div class="options">
-								<button>+</button>
+								<button data-action='modal'>+</button>
 								<span>14,880</span>
 							</div>
 						</div>
@@ -185,7 +185,7 @@
 							<p class="about__descrp">Today's users</p>
 							<time>5:23 am</time>
 							<div class="options">
-								<button>+</button>
+								<button data-action='modal'>+</button>
 								<span>14,880</span>
 							</div>
 						</div>
@@ -205,7 +205,7 @@
 							<div class="info2__comment-header-options">
 									<input type="checkbox" id="check">
 									<label for="check"></label>
-								<button>+</button>
+								<button data-action='modal'>+</button>
 							</div>
 						</div>
 						<div class="info2__comment-body">
@@ -305,15 +305,15 @@
 						</div>
 					</div>
 					<section class="pagination">
-						<a href="">1</a>
+						<a href="#" data-action='modal'>1</a>
 						<a href="" class="active">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
-						<a href="">5</a>
-						<a href="">6</a>
-						<a href="">...</a>
-						<a href="">15</a>
-						<button>></button>
+						<a href="#" data-action='modal'>3</a>
+						<a href="#" data-action='modal'>4</a>
+						<a href="#" data-action='modal'>5</a>
+						<a href="#" data-action='modal'>6</a>
+						<a href="#" data-action='modal'>...</a>
+						<a href="#" data-action='modal'>15</a>
+						<button data-action='modal'>></button>
 					</section>
 				</div>
 				<div class="info2__right-column">
@@ -338,6 +338,22 @@
 					</div>
 				</div>
 			</section>
+		</div>
+	</div>
+	<div id="underConstructionModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">OOPS! This page is yet to come!</h4>
+				</div>
+				<div class="modal-body">
+					<img src="images/construction.png" alt="Webpage Under Construction">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Gotcha!</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
